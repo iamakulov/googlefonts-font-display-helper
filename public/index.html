@@ -345,12 +345,12 @@
       <script>
         const getSnippet = fontFamily => {
           const snippet = `
-<!-- Code snippet for speeding up Google Fonts rendering: googlefonts.3perf.com -->
+<!-- Code snippet to speed up Google Fonts rendering: googlefonts.3perf.com -->
 <link rel="preload" href="$FONT_FAMILY$" as="fetch" crossorigin="anonymous" />
 <script type="text/javascript">
   !function(){var t="$FONT_FAMILY$",n="__3perf_googleFontsStylesheet";function e(){var e=document.createElement("link");e.href=t,e.rel="stylesheet",(document.head||document.body).appendChild(e)}function o(e){var t=e.replace(/@font-face {/g,"@font-face { font-display: $FONT_DISPLAY$;"),n=document.createElement("style");n.innerHTML=t,(document.head||document.body).appendChild(n)}if(window.FontFace&&window.FontFace.prototype.hasOwnProperty("display")){if(localStorage.getItem(n))return o(localStorage.getItem(n)),fetch(t);fetch(t).then(function(e){return e.text()}).then(function(e){return localStorage.setItem(n,e),e}).then(o).catch(e)}else e()}()
 <\/script>
-<!-- End of the code snippet -->
+<!-- End of code snippet for Google Fonts -->
           `.trim();
 
           return snippet
