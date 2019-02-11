@@ -170,7 +170,7 @@
         function patchAndInsertStylesheet(stylesheet) {
           var stylesheetWithFontDisplay = stylesheet.replace(
             /@font-face {/g,
-            '@font-face {\n  font-display: ' + fontDisplayValue + ';',
+            '@font-face {\n  font-display: ' + fontDisplayValue + ';'
           );
 
           var style = document.createElement('style');
@@ -365,7 +365,7 @@
         const updateResult = () => {
           const sourceCode = document.querySelector('#source-code').value;
           const googleFontsUrlMatches = sourceCode.match(
-            /https:\/\/fonts.googleapis.com\/css\?[a-zA-Z0-9=+|&:,;]+/,
+            /https:\/\/fonts.googleapis.com\/css\?[a-zA-Z0-9=+|&:,;]+/
           );
           if (!googleFontsUrlMatches) {
             setResultTextarea('');
