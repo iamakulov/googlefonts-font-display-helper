@@ -218,7 +218,7 @@
     </p>
     <h2>How does this work?</h2>
     <p>
-      The tool generates a snippet of code that:
+      The generated code snippet:
     </p>
     <ul>
       <li>downloads the Google Fonts stylesheet asynchronously,</li>
@@ -240,11 +240,11 @@
       document synchronously – so that the browser can apply custom fonts
       immediately.
     </p>
-    <h2>How does the tool affect performance?</h2>
+    <h2>How does this affect performance?</h2>
     <p>
-      The tool tries to be as lightweight as possible. To achieve performance
-      similar to the original <code>&lt;link rel="stylesheet"></code>, the
-      tool:
+      The snippet tries to be as lightweight as possible. To achieve performance
+      similar to the original <code>&lt;link rel="stylesheet"></code>, this
+      snippet generator:
     </p>
     <ul>
       <li>
@@ -257,13 +257,16 @@
       </li>
     </ul>
     <p>
-      Because the tool uses <code>&lt;link rel="preload" as="fetch"></code> –
+      Because the snippet has to use <code>&lt;link rel="preload" as="fetch"></code> –
       and not <code>&lt;link rel="preload" as="style"></code> – in Chrome, the
       stylesheet’s priority will be one level lower, and it might start
       downloading slightly later. However, overall, the performance effect
-      should be positive, because the Google Fonts stylesheet won’t block page
+      should be positive – because the Google Fonts stylesheet won’t block page
       rendering anymore, and fonts will display immediately.
     </p>
+    <h2>Where do I see the source code or report issues?</h2>
+    <p>Use <a href="https://github.com/iamakulov/googlefonts-font-display-helper">the GitHub
+        repo</a>.</p>
     <footer>
       With 🖤, <a href="https://twitter.com/iamakulov">Ivan Akulov</a> for
       <a href="https://3perf.com">PerfPerfPerf</a><br />© 2019. License:
