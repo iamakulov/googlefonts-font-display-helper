@@ -309,6 +309,10 @@
         document.querySelector('#source-code').select();
       });
 
+      document.querySelector('#result').addEventListener('focus', () => {
+        document.querySelector('#result').select();
+      });
+
       document.querySelector('#copy-button').addEventListener('click', () => {
         document.querySelector('#result').select();
         document.execCommand('copy');
