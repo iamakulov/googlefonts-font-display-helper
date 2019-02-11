@@ -150,12 +150,7 @@
     }
   </style>
   <!-- Dogfooding: use the same snippet for the current page -->
-  <!-- Code snippet to speed up Google Fonts rendering: googlefonts.3perf.com -->
-<link rel="preload" href="https://fonts.googleapis.com/css?family=Fira+Mono|Merriweather:700" as="fetch" crossorigin="anonymous" />
-<script type="text/javascript">
-!function(){var t="https://fonts.googleapis.com/css?family=Fira+Mono|Merriweather:700",n="__3perf_googleFontsStylesheet";function e(){var e=document.createElement("link");e.href=t,e.rel="stylesheet",(document.head||document.body).appendChild(e)}function o(e){var t=e.replace(/@font-face {/g,"@font-face {\n  font-display: swap;"),n=document.createElement("style");n.innerHTML=t,(document.head||document.body).appendChild(n)}if(window.FontFace&&window.FontFace.prototype.hasOwnProperty("display")){if(localStorage.getItem(n))return o(localStorage.getItem(n)),fetch(t).then(function(){});fetch(t).then(function(e){return e.text()}).then(function(e){return localStorage.setItem(n,e),e}).then(o).catch(e)}else e()}();
-</script>
-<!-- End of code snippet for Google Fonts -->
+  {{{compiledSnippet}}}
 </head>
 
 <body>
@@ -280,7 +275,7 @@
 
     <script>
       const getSnippet = fontFamily => {
-        const snippet = '<!-- Code snippet to speed up Google Fonts rendering: googlefonts.3perf.com -->\r\n<link rel=\"preload\" href=\"%FONT_STYLESHEET%\" as=\"fetch\" crossorigin=\"anonymous\" />\r\n<script type=\"text/javascript\">\r\n!function(){var t=\"%FONT_STYLESHEET%\",n=\"__3perf_googleFontsStylesheet\";function e(){var e=document.createElement(\"link\");e.href=t,e.rel=\"stylesheet\",(document.head||document.body).appendChild(e)}function o(e){var t=e.replace(/@font-face {/g,\"@font-face {\\n  font-display: %FONT_DISPLAY%;\"),n=document.createElement(\"style\");n.innerHTML=t,(document.head||document.body).appendChild(n)}if(window.FontFace&&window.FontFace.prototype.hasOwnProperty(\"display\")){if(localStorage.getItem(n))return o(localStorage.getItem(n)),fetch(t).then(function(){});fetch(t).then(function(e){return e.text()}).then(function(e){return localStorage.setItem(n,e),e}).then(o).catch(e)}else e()}();\r\n<\/script>\r\n<!-- End of code snippet for Google Fonts -->';
+        const snippet = '{{{snippetSource}}}';
 
         return snippet
           .replace(/%FONT_STYLESHEET%/g, fontFamily)

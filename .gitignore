@@ -4,7 +4,5 @@ node_modules
 yarn-error.log
 
 # Build directory
-/dist
+.build
 .DS_Store
-
-.env.*

@@ -1,7 +1,8 @@
 (function() {
-  var fontStylesheet =
-    'https://fonts.googleapis.com/css?family=Fira+Mono|Merriweather:700';
-  var fontDisplayValue = 'swap';
+  // $FONT_STYLESHEET$ and $FONT_DISPLAY$ values are replaced by the snippet generator
+  // when the snippet is generated
+  var fontStylesheet = '%FONT_STYLESHEET%';
+  var fontDisplayValue = '%FONT_DISPLAY%';
   var cssLocalStorageKey = '__3perf_googleFontsStylesheet';
 
   function insertFallback() {
@@ -33,7 +34,7 @@
     var stylesheet = localStorage.getItem(cssLocalStorageKey);
     patchAndInsertStylesheet(stylesheet);
     // Still initiate fetch() to avoid “Unused <link rel="preload">” warnings
-    fetch(fontStylesheet).then(() => {});
+    fetch(fontStylesheet).then(function() {});
     return;
   }
 

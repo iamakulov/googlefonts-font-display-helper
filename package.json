@@ -1,0 +1,17 @@
+{
+  "name": "3perf-googlefonts",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build-script": "mkdirp .build && uglifyjs src/script.js --compress --mangle -o .build/script-minified.js",
+    "build-snippet": "node bin/build-snippet.js .build/script-minified.js src/snippet.hbs .build/snippet.html",
+    "build-snippet-generator": "node bin/build-snippet-generator.js .build/snippet.html src/snippet-generator/index.hbs public/index.html",
+    "build": "yarn build-script && yarn build-snippet && yarn build-snippet-generator"
+  },
+  "devDependencies": {
+    "handlebars": "^4.1.0",
+    "js-string-escape": "^1.0.1",
+    "mkdirp": "^0.5.1",
+    "uglify-js": "^3.4.9"
+  }
+}
