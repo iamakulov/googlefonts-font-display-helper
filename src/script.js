@@ -23,8 +23,7 @@
     (document.head || document.body).appendChild(style);
   }
 
-  var isFontDisplaySupported =
-    window.FontFace && window.FontFace.prototype.hasOwnProperty('display');
+  var isFontDisplaySupported = document.fonts !== undefined;
   if (!isFontDisplaySupported) {
     insertFallback();
     return;
