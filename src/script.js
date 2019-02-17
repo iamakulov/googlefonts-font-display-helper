@@ -18,14 +18,16 @@
     append(link);
   }
 
-  function patchAndInsertStylesheet(stylesheet) {
-    var stylesheetWithFontDisplay = stylesheet.replace(
+  function patchStylesheet(stylesheet) {
+    return stylesheet.replace(
       /@font-face {/g,
       '@font-face{font-display:' + fontDisplayValue + ';'
     );
-
+  }
+  
+  function insertStylesheet(stylesheet) {
     var style = document.createElement('style');
-    style.innerHTML = stylesheetWithFontDisplay;
+    style.innerHTML = stylesheet;
     append(style);
   }
 
@@ -37,8 +39,7 @@
   }
 
   if (localStorage[cssLocalStorageKey]) {
-    var stylesheet = localStorage[cssLocalStorageKey];
-    patchAndInsertStylesheet(stylesheet);
+    insertStylesheet(localStorage[cssLocalStorageKey]);
     // Still initiate fetch() to avoid “Unused <link rel="preload">” warnings
     fetch(fontStylesheet).then(function() {});
     return;
@@ -48,10 +49,11 @@
     .then(function(response) {
       return response.text();
     })
+    .then(patchStylesheet)
     .then(function(stylesheet) {
       localStorage[cssLocalStorageKey] = stylesheet;
       return stylesheet;
     })
-    .then(patchAndInsertStylesheet)
+    .then(insertStylesheet)
     .catch(insertFallback);
 })();
