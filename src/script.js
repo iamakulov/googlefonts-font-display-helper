@@ -1,26 +1,34 @@
 (function() {
+  'use strict';
+  
   // $FONT_STYLESHEET$ and $FONT_DISPLAY$ values are replaced by the snippet generator
   // when the snippet is generated
   var fontStylesheet = '%FONT_STYLESHEET%';
   var fontDisplayValue = '%FONT_DISPLAY%';
   var cssLocalStorageKey = '__3perf_googleFontsStylesheet';
-
+  
+  function append(el) {
+    (document.head || document.body).appendChild(el);
+  }
+  
   function insertFallback() {
     var link = document.createElement('link');
     link.href = fontStylesheet;
     link.rel = 'stylesheet';
-    (document.head || document.body).appendChild(link);
+    append(link);
   }
 
-  function patchAndInsertStylesheet(stylesheet) {
-    var stylesheetWithFontDisplay = stylesheet.replace(
+  function patchStylesheet(stylesheet) {
+    return stylesheet.replace(
       /@font-face {/g,
-      '@font-face {\n  font-display: ' + fontDisplayValue + ';'
+      '@font-face{font-display:' + fontDisplayValue + ';'
     );
-
+  }
+  
+  function insertStylesheet(stylesheet) {
     var style = document.createElement('style');
-    style.innerHTML = stylesheetWithFontDisplay;
-    (document.head || document.body).appendChild(style);
+    style.innerHTML = stylesheet;
+    append(style);
   }
 
   var isFontDisplaySupported =
@@ -30,9 +38,8 @@
     return;
   }
 
-  if (localStorage.getItem(cssLocalStorageKey)) {
-    var stylesheet = localStorage.getItem(cssLocalStorageKey);
-    patchAndInsertStylesheet(stylesheet);
+  if (localStorage[cssLocalStorageKey]) {
+    insertStylesheet(localStorage[cssLocalStorageKey]);
     // Still initiate fetch() to avoid “Unused <link rel="preload">” warnings
     fetch(fontStylesheet).then(function() {});
     return;
@@ -42,10 +49,11 @@
     .then(function(response) {
       return response.text();
     })
+    .then(patchStylesheet)
     .then(function(stylesheet) {
-      localStorage.setItem(cssLocalStorageKey, stylesheet);
+      localStorage[cssLocalStorageKey] = stylesheet;
       return stylesheet;
     })
-    .then(patchAndInsertStylesheet)
+    .then(insertStylesheet)
     .catch(insertFallback);
 })();
