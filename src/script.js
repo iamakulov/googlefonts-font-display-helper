@@ -1,4 +1,4 @@
-(function() {
+(function(window, document, localStorage) {
   'use strict';
 
   // $FONT_STYLESHEET$ and $FONT_DISPLAY$ values are replaced by the snippet generator
@@ -65,4 +65,4 @@
     })
     .then(insertStylesheet)
     .catch(insertFallback);
-})();
+})(window, document, localStorage);
