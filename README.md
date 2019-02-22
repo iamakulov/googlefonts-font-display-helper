@@ -14,4 +14,4 @@ This repo includes a source of `googlefonts.3perf.com`, a tool that generates sn
 
 ## License
 
-MIT © [Ivan Akulov](https://iamakulov.com)
+MIT © [Ivan Akulov](https://github.com/iamakulov), [Jacob Groß](https://github.com/kurtextrem)
