@@ -21,21 +21,23 @@
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
         Ubuntu, 'Helvetica Neue', sans-serif;
-      background: #f5f5f5;
+      background: #fffae0;
       border-top: 10px solid #ffdb01;
+      overflow-x: hidden;
     }
 
     h1 {
       font-family: Montserrat, sans-serif;
       margin-top: 0;
+      font-weight: 900;
+      line-height: 1.2;
     }
 
     h2 {
-      font-family: 'Merriweather', Georgia, serif;
-      margin-top: 2em;
-      border-left: 2px solid #ffdb01;
-      padding-left: 10px;
-      margin-left: -12px;
+      font-family: 'Montserrat', Georgia, serif;
+      margin-top: 32px;
+      font-weight: 900;
+      margin-bottom: 0;
     }
 
     a {
@@ -93,7 +95,7 @@
 
     ol {
       padding: 0;
-      list-style-position: inside;
+      list-style: none;
     }
 
     ol li {
@@ -113,20 +115,30 @@
       font-size: 13px;
     }
 
-    #source-code {
+    .tool-wrapper {
+      padding: 32px 48px;
+      margin: 0 -48px 48px;
+      background: white;
+    }
+
+    .tool__source-code {
       font-family: 'Fira Code', 'Fira Mono', monospace;
       width: 100%;
       margin-top: 0.5em;
     }
 
-    #result-block {
+    .tool__result-block {
       margin-top: 0.5em;
     }
 
-    #result {
+    .tool__result {
       font-family: 'Fira Code', 'Fira Mono', monospace;
       width: 100%;
       min-height: 200px;
+    }
+
+    .tool__github-button-wrapper {
+      vertical-align: -9px;
     }
 
     .container {
@@ -141,6 +153,8 @@
       flex-wrap: wrap;
       margin: -6px -12px;
       margin-bottom: 36px;
+
+      font-family: 'Montserrat', sans-serif;
     }
 
     .nav>* {
@@ -158,8 +172,30 @@
       height: 50px;
     }
 
-    .github-button-wrapper {
-      vertical-align: -9px;
+    .nav__links>* {
+      margin: 3px 12px;
+    }
+
+    .nav__links {
+      display: flex;
+      margin: -3px -12px;
+      flex-wrap: wrap;
+    }
+
+    .emoji {
+      font-weight: 400;
+      font-family: apple color emoji, segoe ui emoji, noto color emoji, android emoji, emojisymbols, emojione mozilla, twemoji mozilla, segoe ui symbol;
+    }
+
+    .image_block {
+      display: block;
+    }
+
+    .header_inline {
+      display: inline;
+      margin: 0;
+      font-size: inherit;
+      font-weight: bold;
     }
   </style>
   <!-- Dogfooding: use the same snippet for the current page -->
@@ -194,48 +230,62 @@
       <a href="https://3perf.com" class="nav__logo-link">
         <img src="/3perf-logo-black.svg" alt="PerfPerfPerf logo" class="nav__logo" />
       </a>
-    </nav>
-    <h1>Make your Google Fonts render faster</h1>
-
-    <ol>
-      <li>
-        Choose the fonts you need
-        <a href="https://fonts.google.com">on Google Fonts</a>.
-      </li>
-      <li>
-        Copy a link to the Google Fonts stylesheet – or just the code they
-        provide – and paste it below:
-        <input id="source-code" value="https://fonts.googleapis.com/css?family=Fira+Mono|Montserrat" />
-      </li>
-      <li>
-        Copy the resulting code and insert it into your
-        <code>&lt;head></code> tag – instead of the Google Fonts snippet:
-        <div id="result-block">
-          <button id="copy-button">Copy</button><br />
-          <textarea id="result" readonly></textarea>
+      <div class="nav__links-wrapper">
+        <div class="nav__links">
+          <a href="https://3perf.com/">Performance consulting</a>
+          <a href="https://3perf.com/#clients">Cases</a>
+          <a href="https://3perf.com/#materials">Articles</a>
+          <a href="https://3perf.com/#about">About us</a>
         </div>
-      </li>
-      <li>Subscribe to the GitHub repository to learn about important updates to the script:
-        <span class="github-button-wrapper">
-          <a class="github-button" href="https://github.com/iamakulov/googlefonts-font-display-helper"
-            data-icon="octicon-eye" data-size="large"
-            aria-label="Watch iamakulov/googlefonts-font-display-helper on GitHub">Watch</a>
-        </span>
-      </li>
-    </ol>
+      </div>
+    </nav>
 
-    <h2>What is this?</h2>
+    <div class="tool-wrapper">
+      <h1>Make your Google Fonts render faster <span class="emoji">🚀</span></h1>
+
+      <ol class="tool">
+        <li>
+          <span class="emoji">1️⃣</span> Choose the fonts you need
+          <a href="https://fonts.google.com">on Google Fonts</a>.
+        </li>
+        <li>
+          <span class="emoji">2️⃣</span> Copy a link to the Google Fonts stylesheet – or just the code they
+          provide – and paste it below:
+          <input class="tool__source-code" id="js-source-code"
+            value="https://fonts.googleapis.com/css?family=Fira+Mono|Montserrat" />
+        </li>
+        <li>
+          <span class="emoji">3️⃣</span> Copy the resulting code and insert it into your
+          <code>&lt;head></code> tag – instead of the Google Fonts snippet:
+          <div class="tool__result-block" id="js-result-block">
+            <button id="js-copy-button">Copy</button><br />
+            <textarea class="tool__result" id="js-result" readonly></textarea>
+          </div>
+        </li>
+        <li><span class="emoji">4️⃣</span> Subscribe to the GitHub repository to learn about important updates to the
+          script:
+          <span class="tool__github-button-wrapper">
+            <a class="github-button" href="https://github.com/iamakulov/googlefonts-font-display-helper"
+              data-icon="octicon-eye" data-size="large"
+              aria-label="Watch iamakulov/googlefonts-font-display-helper on GitHub">Watch</a>
+          </span>
+        </li>
+      </ol>
+    </div>
+
+    <h2>What is this? <span class="emoji">🧐</span></h2>
     <p>
       When you use a custom font (like a font from Google Fonts),
-      <a href="https://developers.google.com/web/updates/2016/02/font-display#differences_in_font_rendering_today">most
-        modern browsers</a>
-      won’t render the text immediately. Instead, they will keep the text
-      hidden until the font is downloaded – or until 3 seconds pass. If a user
-      opens a page with such font from a slow connection (e.g. from mobile),
+      most
+      modern browsers
+      <a href="https://developers.google.com/web/updates/2016/02/font-display#differences_in_font_rendering_today">don’t
+        render the text immediately</a>. Instead, they keep the text
+      hidden until the font is downloaded (or until 3 seconds pass). If a user
+      opens a page with a custom font from a slow connection (e.g., from mobile),
       it will look like this:
     </p>
     <p>
-      <video autoplay muted controls>
+      <video autoplay muted controls loop>
         <source src="/loading-video.mp4" type="video/mp4" />
         <source src="/loading-video.webm" type="video/webm" />
         Your browser doesn't support HTML5 video. Here is a
@@ -246,32 +296,39 @@
       This hurts user experience –
       <a href="https://3perf.com/talks/web-perf-101/#perf-importance-header">and affects business metrics</a>.
     </p>
+    <p>This tools wraps Google Fonts and makes the text render immediately (with a fallback font). The custom font is
+      downloaded asynchronously and applied later:</p>
     <p>
-      In 2017-2018, most browsers released support for
-      <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display"><code>font-display</code></a>,
-      a CSS feature that helps to configure that behavior. For example,
-      with <code>font-display: swap</code>, the text is rendered immediately
-      using a fallback font. Then, when a custom font is downloaded, the text
-      is re-rendered in that font.
+      <a
+        href="https://www.webpagetest.org/video/compare.php?tests=190214_5S_353d1e658663bfe996ceaee8093aa578%2C190214_VQ_e6c965dc8137d95b37234e93840f13ce&thumbSize=200&ival=1000&end=visual">
+        <img class="image_block" src="/comparison.png" />
+      </a>
+    </p>
+
+    <h2>How does this work? <span class="emoji">⚙</span></h2>
+    <p>
+      <h3 class="header_inline">It uses <code>font-display</code> under the hood.</h3> In 2017-2018, most browsers
+      released
+      support for <a
+        href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display"><code>font-display</code></a>,
+      a CSS feature that helps to configure how custom fonts are loaded. However, Google Fonts
+      <a href="https://github.com/google/fonts/issues/358">don’t support <code>font-display</code> natively</a>! This
+      tool works around that and adds the <code>font-display: swap</code> declaration to make the browser render the
+      text immediately.
     </p>
     <p>
-      Unfortunately, Google Fonts
-      <a href="https://github.com/google/fonts/issues/358">don’t support <code>font-display</code> natively</a>, so you
-      can’t apply this optimization to them. This tool generates a
-      small wrapper around Google Fonts that adds
-      <code>font-display</code> support and helps to render text quicker.
-    </p>
-    <h2>How does this work?</h2>
-    <p>
-      The generated code snippet:
+      In more details, the generated script:
     </p>
     <ul>
-      <li>downloads the Google Fonts stylesheet asynchronously,</li>
-      <li>patches it to insert the <code>font-display</code> declaration,</li>
+      <li>downloads the Google Fonts stylesheet asynchronously for each visitor,</li>
+      <li>patches it to insert the <code>font-display: swap</code> declaration,</li>
       <li>and inserts that stylesheet into the document.</li>
     </ul>
+    <p><a href="https://github.com/iamakulov/googlefonts-font-display-helper/blob/master/src/script.js">See the script
+        source</a></p>
     <p>
-      The snippet should work fine in older browsers. It uses
+      <h3 class="header_inline">It works fine in older browsers.</h3>
+      The snippet uses
       <a href="https://github.com/bramstein/fontfaceobserver/issues/62#issuecomment-398399886">the
         <code>window.FontFace</code> check</a>
       to detect if a browser supports <code>font-display</code>. If the
@@ -280,52 +337,42 @@
       inserting a regular <code>&lt;link> tag</code>.
     </p>
     <p>
-      The snippet doesn’t cause unnecessary font jumps. If the Google Fonts
+      <h3 class="header_inline">It cares to avoid unnecessary font jumps.</h3> If the Google Fonts
       stylesheet is already cached, the script will insert it into the
       document synchronously – so that the browser can apply custom fonts
       immediately.
     </p>
-    <h2>How does this affect performance?</h2>
+
+    <h2>How does this affect performance? <span class="emoji">🏎</span></h2>
     <p>
-      The snippet tries to be as lightweight as possible. To achieve performance
-      similar to the original <code>&lt;link rel="stylesheet"></code>, this
-      snippet generator:
+      We built the snippet to be as lightweight as possible. To achieve a great performance, this tool:
     </p>
     <ul>
+      <li>keeps the whole snippet tiny – right now, it’s just 550 bytes minified and gzipped,</li>
       <li>
-        generates a <code>&lt;link rel="preload"></code> tag for the stylesheet
-        so the browser starts downloading it as soon as possible,
+        generates a <code>&lt;link rel="preload"></code> tag for the Google Fonts stylesheet
+        – so the browser starts downloading it even before the snippet runs,
       </li>
       <li>
         generates a <code>&lt;link rel="preconnect"></code> tag
-        for the domain font files are loaded from (and <code>&lt;link rel="dns-prefetch"></code>
+        for the domain that serves font files (and <code>&lt;link rel="dns-prefetch"></code>
         for older browsers) – so the browser can fetch font files sooner,
       </li>
       <li>
         and provides an inline script instead of an external one – to avoid
-        making an extra HTTP request
+        making an extra HTTP request.
       </li>
     </ul>
-    <p>
-      Because the snippet has to use <code>&lt;link rel="preload" as="fetch"></code> –
-      and not <code>&lt;link rel="preload" as="style"></code> – in Chrome, the
-      stylesheet’s priority will be one level lower, and it might start
-      downloading slightly later. However, overall,
-      <a
-        href="https://www.webpagetest.org/video/compare.php?tests=190214_5S_353d1e658663bfe996ceaee8093aa578,190214_VQ_e6c965dc8137d95b37234e93840f13ce#">
-        the performance effect is positive
-      </a> – because the Google Fonts stylesheet doesn’t block the page
-      anymore, and fonts display immediately.
-    </p>
-    <h2>Where do I report issues?</h2>
+
+    <h2>Where do I report issues? <span class="emoji">🙋‍</span></h2>
     <p>Do that in <a href="https://github.com/iamakulov/googlefonts-font-display-helper">the GitHub
         repo</a>.</p>
-    <h2>Who are you?</h2>
-    <p>We are <a href="https://3perf.com">PerfPerfPerf</a>. We help companies make their apps and sites faster and earn
-      more. We worked with Google and a
-      bunch of e-commerce and media companies (<a href="https://3perf.com/#clients">here’re some cases</a>).</p>
-    <p>If you
-      want to improve your conversion, or have issues with performance, <a href="https://3perf.com/#contact">reach
+
+    <h2>Who are you? <span class="emoji">⚡</span></h2>
+    <p>We are <a href="https://3perf.com">PerfPerfPerf</a>, and we help companies make web apps faster and earn
+      more. We worked with Google and various of e-commerce and media companies (<a
+        href="https://3perf.com/#clients">here’re some cases</a>).</p>
+    <p>Want to improve your conversion, or have issues with performance? <a href="https://3perf.com/#contact">Reach
         us</a>.</p>
     <footer>
       With 🖤, <a href="https://3perf.com">PerfPerfPerf</a><br />© 2019. License:
@@ -345,11 +392,11 @@
       };
 
       const setResultTextarea = value => {
-        document.querySelector('#result').value = value;
+        document.querySelector('#js-result').value = value;
       };
 
       const updateResult = () => {
-        const sourceCode = document.querySelector('#source-code').value;
+        const sourceCode = document.querySelector('#js-source-code').value;
         const googleFontsUrlMatches = sourceCode.match(
           /https:\/\/fonts.googleapis.com\/css\?[a-zA-Z0-9=+|&:,;-]+/
         );
@@ -364,21 +411,21 @@
 
       updateResult();
       document
-        .querySelector('#source-code')
+        .querySelector('#js-source-code')
         .addEventListener('input', updateResult);
 
-      document.querySelector('#source-code').addEventListener('focus', () => {
-        document.querySelector('#source-code').select();
+      document.querySelector('#js-source-code').addEventListener('focus', () => {
+        document.querySelector('#js-source-code').select();
       });
 
-      document.querySelector('#result').addEventListener('focus', () => {
-        document.querySelector('#result').select();
+      document.querySelector('#js-result').addEventListener('focus', () => {
+        document.querySelector('#js-result').select();
       });
 
-      document.querySelector('#copy-button').addEventListener('click', () => {
-        document.querySelector('#result').select();
+      document.querySelector('#js-copy-button').addEventListener('click', () => {
+        document.querySelector('#js-result').select();
         document.execCommand('copy');
-        document.querySelector('#copy-button').textContent = 'Copied';
+        document.querySelector('#js-copy-button').textContent = 'Copied';
       });
     </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->

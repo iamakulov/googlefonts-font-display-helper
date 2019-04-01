@@ -22,7 +22,7 @@ const escapedSnippetSource = jsStringEscape(snippetSource)
 const compiledSnippet = snippetSource
   .replace(
     /%FONT_STYLESHEET%/g,
-    'https://fonts.googleapis.com/css?family=Fira+Mono|Merriweather:700|Montserrat:700'
+    'https://fonts.googleapis.com/css?family=Fira+Mono|Montserrat:400,900'
   )
   .replace(/%FONT_DISPLAY%/g, 'swap');
 
