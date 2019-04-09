@@ -115,6 +115,16 @@
       font-size: 13px;
     }
 
+    blockquote {
+      border-left: 5px solid black;
+      padding-left: 24px;
+      margin: 0;
+    }
+
+    mark {
+      background: #fff4b8;
+    }
+
     .tool-wrapper {
       padding: 32px 48px;
       margin: 0 -48px 48px;
@@ -194,6 +204,20 @@
       margin: 0;
       font-size: inherit;
       font-weight: bold;
+    }
+
+    .about {
+      padding: 32px 48px;
+      margin: 32px -48px 48px;
+      background: white;
+    }
+
+    .about__header {
+      margin-top: 0;
+    }
+
+    .about__blockquote {
+      margin-bottom: 18px;
     }
   </style>
   <!-- Dogfooding: use the same snippet for the current page -->
@@ -366,12 +390,26 @@
     <p>Do that in <a href="https://github.com/iamakulov/googlefonts-font-display-helper">the GitHub
         repo</a>.</p>
 
-    <h2>Who are you?&nbsp;<span class="emoji">⚡</span></h2>
-    <p>We are <a href="https://3perf.com">PerfPerfPerf</a>, and we help companies to make web apps faster and earn
-      more. We worked with Google and various of e-commerce and media companies (<a
-        href="https://3perf.com/#clients">here’re some cases</a>).</p>
-    <p>Want to improve your conversion, or have issues with performance? <a href="https://3perf.com/#contact">Reach
-        us</a>.</p>
+    <div class="about">
+      <h2 class="about__header">Who are you?&nbsp;<span class="emoji">⚡</span></h2>
+      <p>We are <a href="https://3perf.com">PerfPerfPerf</a>. We help companies to make web apps faster and earn
+        more.</p>
+      <p>We worked with Google and <a href="https://3perf.com/#clients">various e-commerce and media companies</a>.
+        Here’s a feedback from one of them:</p>
+      <blockquote class="about__blockquote">
+        <p>Ivan <em>[the PerfPerfPerf founder]</em> gave a ton of extremely useful, actionable feedback that
+          <mark>directly improved our First Meaningful Paint, Time to Interactive, Speed Index, First CPU Idle</mark>
+          metrics significantly. Also, he helped with some bundle size optimization too.</p>
+
+        <p>Interaction with Ivan is dense in terms of knowledge transfer, and I guarantee you that you will learn a lot
+          of new things. On top of all these, he’s a super smooth person to work with. All in all, <mark>I cannot
+            recommend Ivan enough</mark>!</p>
+        <p><small>— <a href="https://twitter.com/cihatimamoglu">Cihat Imamoglu</a>, Senior Software Engineer @ Fat
+            Llama</small></p>
+      </blockquote>
+      <p>Want to improve conversion, or have issues with performance? <a href="mailto:perf@3perf.com">Chat
+          with us</a>.</p>
+    </div>
     <footer>
       With 🖤, <a href="https://3perf.com">PerfPerfPerf</a><br />© 2019. License:
       <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a>
