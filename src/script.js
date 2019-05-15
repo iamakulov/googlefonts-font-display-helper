@@ -7,7 +7,7 @@
   // We need a unique ID for a localStorage key and a style tag attribute (see #18 for reasoning).
   // In this script, we reuse the same variable for both meanings
   // to reduce the script size after minification and gzip
-  var uniqueStorageId = '__3perf_googleFonts_%UNIQUE_ID%';
+  var uniqueStorageId = '__3perf_gFonts_%UNIQUE_ID%';
 
   function append(el) {
     (document.head || document.body).appendChild(el);
