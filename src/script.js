@@ -21,13 +21,6 @@
     append(link);
   }
 
-  function patchStylesheet(stylesheet) {
-    return stylesheet.replace(
-      /@font-face {/g,
-      '@font-face{font-display:' + fontDisplayValue + ';'
-    );
-  }
-
   function insertStylesheet(stylesheet) {
     if (!document.getElementById(uniqueStorageId)) {
       var style = document.createElement('style');
@@ -58,7 +51,6 @@
     .then(function(response) {
       return response.text();
     })
-    .then(patchStylesheet)
     .then(function(stylesheet) {
       localStorage[uniqueStorageId] = stylesheet;
       return stylesheet;
