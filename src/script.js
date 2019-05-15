@@ -1,10 +1,9 @@
 (function(window, document, localStorage) {
   'use strict';
 
-  // %FONT_STYLESHEET%, %FONT_DISPLAY% and %UNIQUE_ID% values are replaced by the snippet generator
+  // %FONT_STYLESHEET% and %UNIQUE_ID% values are replaced by the snippet generator
   // when the snippet is generated
   var fontStylesheet = '%FONT_STYLESHEET%';
-  var fontDisplayValue = '%FONT_DISPLAY%';
   // We need a unique ID for a localStorage key and a style tag attribute (see #18 for reasoning).
   // In this script, we reuse the same variable for both meanings
   // to reduce the script size after minification and gzip
