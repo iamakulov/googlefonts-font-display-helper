@@ -31,13 +31,6 @@
     document.getElementById(uniqueStorageId).innerHTML = stylesheet;
   }
 
-  var isFontDisplaySupported =
-    window.FontFace && window.FontFace.prototype.hasOwnProperty('display');
-  if (!isFontDisplaySupported) {
-    insertFallback();
-    return;
-  }
-
   if (localStorage[uniqueStorageId]) {
     // We insert a cached stylesheet syncronously to avoid a FOUT if fonts are cached.
     // This matches the behavior of the original render-blocking `<link rel="stylesheet">` tag.
