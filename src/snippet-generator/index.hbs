@@ -126,6 +126,13 @@
       background: #fff4b8;
     }
 
+    .deprecation-message {
+      padding: 24px 40px;
+      margin: 0 -48px 48px;
+      background: white;
+      border: 8px solid black;
+    }
+
     .tool-wrapper {
       padding: 32px 48px;
       margin: 0 -48px 48px;
@@ -262,6 +269,20 @@
         </div>
       </div>
     </nav>
+
+    <div class="deprecation-message">
+      <h1>Deprecated</h1>
+      <p>We created this tool in Feb 2019 to help developers load Google Fonts as if it supported
+        <code>font-display</code>. But very soon, in May 2019, Google
+        Fonts <a href="https://github.com/google/fonts/issues/358#issuecomment-492324042">rolled
+          out built-in <code>font-display</code> support</a> – which is great!</p>
+      <p>So today, while this tool still works just file, there’s no much sense to use it over the native
+        feature.</p>
+      <p>To use <code>font-display</code> in Google Fonts natively, just append <code>&amp;display=swap</code> (or
+        another value) to the end of your Google Fonts url: <a style="word-break: break-all"
+          href="https://fonts.googleapis.com/css?family=Fira+Mono|Montserrat&display=swap"><code>https://fonts.googleapis.com/css?family=Fira+Mono|Montserrat<mark>&amp;display=swap</mark></code></a>
+      </p>
+    </div>
 
     <div class="tool-wrapper">
       <h1>Make your Google Fonts render faster&nbsp;<span class="emoji">🚀</span></h1>

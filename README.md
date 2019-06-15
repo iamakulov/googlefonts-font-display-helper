@@ -2,6 +2,12 @@
 
 → [googlefonts.3perf.com](https://googlefonts.3perf.com)
 
+> **Deprecated.**
+>
+> Google Fonts [now have built-in `font-display` support](https://github.com/google/fonts/issues/358#issuecomment-492324042), and there’s no much sense to use this tool over the native feature.
+>
+> To make use of the native support for `font-display`, just append `&display=swap` to the end of you Google Fonts URL.
+
 ## What’s this?
 
 When you use a custom font (like a font from Google Fonts),
