@@ -9,7 +9,7 @@
     "build": "yarn build-script && yarn build-snippet && yarn build-snippet-generator"
   },
   "devDependencies": {
-    "handlebars": "^4.3.0",
+    "handlebars": "^4.5.3",
     "js-string-escape": "^1.0.1",
     "mkdirp": "^0.5.1",
     "uglify-js": "^3.4.9"
